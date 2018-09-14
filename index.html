@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Chart Demo</title>
+    <link rel="stylesheet" href="css/semantic.min.css" />
+    <style type="text/css">
+      .ui.container {
+        padding-top: 3em;
+        padding-bottom: 3em;
+      }
+      .ui.segment {
+      }
+      canvas#demo {
+      }
+    </style>
+    <script type="text/javascript" src="js/chart.bundle.min.js"></script>
+  </head>
+  <body>
+    <div class="ui container">
+      <h2 class="ui header">Graph Demo</h2>
+      <div class="ui segment">
+        <canvas id="demo"></canvas>
+      </div>
+    </div>
+    <script>
+      var ctx = document.getElementById("demo");
+      var chart =
+        new Chart(
+          ctx,
+          {
+            type: 'line',
+            data: {
+              labels: ["January","February","March","April","May","June","July"],
+              datasets: [
+                {
+                  label: 'Straw Production',
+                  data: [9,15,2,3,1,4, 6],
+                  backgroundColor: 'rgba(255, 255, 255, 1)',
+                  borderColor: "rgb(239, 168, 63)",
+                  borderWidth: 3,
+                  lineTension: 0.1
+                },
+                {
+                  label: 'Barley Production',
+                  data: [3, 4, 1, 2, 1, 0, 0],
+                  lineColor: 'yellow',
+                  backgroundColor: 'rgb(220, 232, 204)',
+                  borderColor: "rgb(102, 125, 67)",
+                  borderWidth: 3,
+                  lineTension: 0.1
+                },
+              ]
+            },
+            options: {
+              scales: {
+                yAxes: [{
+                  stacked: true,
+                  ticks: {
+                    beginAtZero:true
+                  }
+                }]
+              }
+            }
+          });
+    </script>
+  </body>
+</html>
